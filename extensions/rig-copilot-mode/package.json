@@ -3,7 +3,12 @@
   "displayName": "RIG Copilot Mode",
   "description": "Adds a RIG-backed Copilot mode that refreshes repository intelligence context and prepares prompt-ready details.",
   "version": "0.0.1",
-  "publisher": "local",
+  "publisher": "RIGCopilotLabs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhruvinhet/Repository-Scale-Architectural-Intelligence-Beyond-Code-Completion.git"
+  },
   "engines": {
     "vscode": "^1.90.0"
   },
@@ -35,6 +40,10 @@
       {
         "command": "rigCopilotMode.openRigView",
         "title": "RIG Copilot Mode: Open RIG View"
+      },
+      {
+        "command": "rigCopilotMode.setupMcpConfig",
+        "title": "RIG Copilot Mode: Setup MCP Config"
       }
     ],
     "configuration": {
@@ -65,11 +74,19 @@
   },
   "scripts": {
     "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "watch": "tsc -watch -p ./",
+    "mcp:start": "node ./out/mcpServer.js",
+    "package:vsix": "vsce package",
+    "publish:marketplace": "vsce publish"
   },
   "devDependencies": {
+    "@vscode/vsce": "^3.6.2",
     "@types/node": "^20.14.2",
     "@types/vscode": "^1.90.0",
     "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^4.3.6"
   }
 }

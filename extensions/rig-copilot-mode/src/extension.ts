@@ -51,6 +51,10 @@ export function activate(context: vscode.ExtensionContext): void {
 
     vscode.commands.registerCommand('rigCopilotMode.openRigView', async () => {
       await openOutputHtml(context, 'rig-view.html');
+    }),
+
+    vscode.commands.registerCommand('rigCopilotMode.setupMcpConfig', async () => {
+      await setupMcpConfig();
     })
   );
 
@@ -377,4 +381,47 @@ async function openOutputHtml(context: vscode.ExtensionContext, fileName: 'rig-v
   }
 
   await vscode.env.openExternal(vscode.Uri.file(htmlPath));
+}
+
+async function setupMcpConfig(): Promise<void> {
+  const root = getWorkspaceRoot();
+  if (!root) {
+    vscode.window.showErrorMessage('RIG Copilot Mode: Open a workspace folder first.');
+    return;
+  }
+
+  const extension = vscode.extensions.getExtension('local.rig-copilot-mode');
+  const extensionPath = extension?.extensionPath;
+  if (!extensionPath) {
+    vscode.window.showErrorMessage('RIG Copilot Mode: Unable to resolve extension installation path.');
+    return;
+  }
+
+  const mcpServerPath = path.join(extensionPath, 'out', 'mcpServer.js');
+  const configDir = path.join(root, '.vscode');
+  const configPath = path.join(configDir, 'mcp.json');
+
+  const config = {
+    servers: {
+      'rig-copilot-mode': {
+        command: 'node',
+        args: [mcpServerPath, '--workspace', root],
+        env: {
+          RIG_OUTPUT_DIR: getConfig().get<string>('outputDir', '.dist-rig'),
+          RIG_PYTHON: getConfig().get<string>('pythonPath', 'python'),
+          RIG_INTENT: getConfig().get<string>(
+            'intent',
+            'Refactor safely using repository intelligence and agent verification'
+          ),
+        },
+      },
+    },
+  };
+
+  await fs.promises.mkdir(configDir, { recursive: true });
+  await fs.promises.writeFile(configPath, JSON.stringify(config, null, 2), 'utf-8');
+
+  const doc = await vscode.workspace.openTextDocument(configPath);
+  await vscode.window.showTextDocument(doc, { preview: false });
+  vscode.window.showInformationMessage('Created .vscode/mcp.json for rig-copilot-mode MCP server.');
 }
