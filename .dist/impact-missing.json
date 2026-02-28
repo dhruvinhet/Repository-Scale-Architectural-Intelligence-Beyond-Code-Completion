@@ -1,0 +1,10 @@
+{
+  "mode": "impact",
+  "name": "does-not-exist",
+  "impact": {
+    "dependencies": [],
+    "dependents": [],
+    "tests": []
+  },
+  "resolved_name": null
+}

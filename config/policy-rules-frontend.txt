@@ -1,0 +1,8 @@
+# Frontend architecture policy pack (one rule per line: <source-prefix>-><target-prefix>)
+# Use prefixes based on your frontend module naming.
+
+# Example: UI layer should not call data layer directly
+# frontend.ui.->frontend.data.
+
+# Example: components should not import infrastructure adapters
+# frontend.components.->frontend.infrastructure.

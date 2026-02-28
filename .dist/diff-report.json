@@ -1,0 +1,16 @@
+{
+  "old": "F:\\Seminar\\.rig\\baseline-rig.json",
+  "new": "F:\\Seminar\\.dist\\rig.json",
+  "node_delta": {
+    "added_count": 0,
+    "removed_count": 0,
+    "added": [],
+    "removed": []
+  },
+  "edge_delta": {
+    "added_count": 0,
+    "removed_count": 0,
+    "added": [],
+    "removed": []
+  }
+}

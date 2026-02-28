@@ -1,0 +1,36 @@
+{
+  "task_id": "T3",
+  "title": "Update Python dependencies and packaging metadata",
+  "description": "Update Python dependencies and packaging metadata for intent: Migrate auth to OAuth2",
+  "intent": "Migrate auth to OAuth2",
+  "impacted_nodes": [
+    "_candidate_files_for_nodes",
+    "extract_python_build_metadata",
+    "src.rig_mvp.agents.workflow._candidate_files_for_nodes",
+    "src.rig_mvp.extractors.python_build_extractor.extract_python_build_metadata",
+    "IntentPlan",
+    "PythonSymbolVisitor",
+    "_apply_intent_refactor",
+    "_apply_task_to_candidates",
+    "_criteria_for_title",
+    "_extract_python_file"
+  ],
+  "candidate_files": [
+    "src/rig_mvp/agents/workflow.py",
+    "src/rig_mvp/extractors/python_build_extractor.py"
+  ],
+  "actions": [
+    "Review 2 candidate file(s) for T3.",
+    "Agent role: generator.",
+    "Prepare multi-file patch aligned with AGENTS.md constraints.",
+    "Run verification loop after patch generation."
+  ],
+  "apply_mode": "deterministic-dry-run",
+  "applied_files": [
+    "src/rig_mvp/agents/workflow.py:dry-run",
+    "src/rig_mvp/extractors/python_build_extractor.py:dry-run"
+  ],
+  "skipped_files": [],
+  "critic_issues": [],
+  "repair_actions": []
+}

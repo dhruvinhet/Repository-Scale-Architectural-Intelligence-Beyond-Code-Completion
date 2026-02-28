@@ -1,0 +1,17 @@
+{
+  "rig": "F:\\Seminar\\.dist\\rig.json",
+  "checks": {
+    "dependency_cycles": {
+      "count": 0,
+      "samples": []
+    },
+    "forbidden_dependency_directions": {
+      "count": 0,
+      "samples": [],
+      "rules": [
+        "src.ui.->src.data."
+      ]
+    }
+  },
+  "passed": true
+}

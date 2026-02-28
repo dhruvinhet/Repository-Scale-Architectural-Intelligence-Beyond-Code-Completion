@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+
+# Node / VS Code extension artifacts
+**/node_modules/
+**/out/
+**/*.vsix
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/

@@ -1,0 +1,36 @@
+{
+  "task_id": "T6",
+  "title": "Run verification and repair",
+  "description": "Run verification and repair for intent: Migrate auth to OAuth2",
+  "intent": "Migrate auth to OAuth2",
+  "impacted_nodes": [
+    "src.rig_mvp.agents.verification._run_command",
+    "_candidate_files_for_nodes",
+    "_run_command",
+    "src.rig_mvp.agents.verification._attempt_safe_repairs",
+    "src.rig_mvp.agents.verification._run_build_system_checks",
+    "src.rig_mvp.agents.verification._run_static_checks",
+    "src.rig_mvp.agents.verification._run_syntax_check",
+    "src.rig_mvp.agents.verification._run_tests",
+    "src.rig_mvp.agents.verification.run",
+    "src.rig_mvp.agents.workflow._candidate_files_for_nodes"
+  ],
+  "candidate_files": [
+    "src/rig_mvp/agents/verification.py",
+    "src/rig_mvp/agents/workflow.py"
+  ],
+  "actions": [
+    "Review 2 candidate file(s) for T6.",
+    "Agent role: repair.",
+    "Prepare multi-file patch aligned with AGENTS.md constraints.",
+    "Run verification loop after patch generation."
+  ],
+  "apply_mode": "deterministic-dry-run",
+  "applied_files": [
+    "src/rig_mvp/agents/verification.py:dry-run",
+    "src/rig_mvp/agents/workflow.py:dry-run"
+  ],
+  "skipped_files": [],
+  "critic_issues": [],
+  "repair_actions": []
+}

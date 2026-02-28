@@ -1,0 +1,75 @@
+{
+  "name": "rig-copilot-mode",
+  "displayName": "RIG Copilot Mode",
+  "description": "Adds a RIG-backed Copilot mode that refreshes repository intelligence context and prepares prompt-ready details.",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "rigCopilotMode.toggle",
+        "title": "RIG Copilot Mode: Toggle"
+      },
+      {
+        "command": "rigCopilotMode.runNow",
+        "title": "RIG Copilot Mode: Refresh Context Now"
+      },
+      {
+        "command": "rigCopilotMode.promptWithContext",
+        "title": "RIG Copilot Mode: Prompt With Context"
+      },
+      {
+        "command": "rigCopilotMode.openWorkflowView",
+        "title": "RIG Copilot Mode: Open Workflow View"
+      },
+      {
+        "command": "rigCopilotMode.openRigView",
+        "title": "RIG Copilot Mode: Open RIG View"
+      }
+    ],
+    "configuration": {
+      "title": "RIG Copilot Mode",
+      "properties": {
+        "rigCopilotMode.enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable RIG Copilot Mode for the current workspace."
+        },
+        "rigCopilotMode.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Python executable used to run rig_mvp CLI commands."
+        },
+        "rigCopilotMode.intent": {
+          "type": "string",
+          "default": "Refactor safely using repository intelligence and agent verification",
+          "description": "Default intent used when auto-generating plan and workflow artifacts."
+        },
+        "rigCopilotMode.outputDir": {
+          "type": "string",
+          "default": ".dist-rig",
+          "description": "Output directory for generated RIG artifacts."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.5.4"
+  }
+}

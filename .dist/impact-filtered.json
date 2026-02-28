@@ -1,0 +1,114 @@
+{
+  "mode": "impact",
+  "name": "src.rig_mvp.cli",
+  "impact": {
+    "dependencies": [
+      "__future__",
+      "agents.orchestrator",
+      "agents.rules",
+      "agents.verification",
+      "agents.workflow",
+      "argparse",
+      "json",
+      "neo4j_export",
+      "pathlib",
+      "pipeline",
+      "policy",
+      "query",
+      "rig_diff",
+      "viewer"
+    ],
+    "dependents": [],
+    "tests": []
+  },
+  "explain": {
+    "dependencies": [
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "__future__",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "agents.orchestrator",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "agents.rules",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "agents.verification",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "agents.workflow",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "argparse",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "json",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "neo4j_export",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "pathlib",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "pipeline",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "policy",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "query",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "rig_diff",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "viewer",
+        "confidence": "high"
+      }
+    ],
+    "dependents": [],
+    "tests": []
+  }
+}

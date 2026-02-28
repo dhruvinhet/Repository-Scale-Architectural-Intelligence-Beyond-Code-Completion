@@ -1,0 +1,33 @@
+{
+  "task_id": "T1",
+  "title": "Analyze impact scope",
+  "description": "Analyze impact scope for intent: Migrate auth to OAuth2",
+  "intent": "Migrate auth to OAuth2",
+  "impacted_nodes": [
+    "IntentPlan",
+    "_apply_intent_refactor",
+    "_candidate_files_for_nodes",
+    "_criteria_for_title",
+    "_find_forbidden_edges",
+    "_infer_impacted_hints",
+    "_name_for_id",
+    "_parse_forbid_rules",
+    "_resolve_impacted_nodes",
+    "_role_for_title"
+  ],
+  "candidate_files": [],
+  "actions": [
+    "Inspect RIG neighborhood for T1.",
+    "No candidate files auto-detected; requires targeted repository query.",
+    "Repair: broaden RIG neighborhood search for T1."
+  ],
+  "apply_mode": "deterministic-dry-run",
+  "applied_files": [],
+  "skipped_files": [],
+  "critic_issues": [
+    "No candidate files were found; impact scope may be incomplete."
+  ],
+  "repair_actions": [
+    "Repair: broaden RIG neighborhood search for T1."
+  ]
+}

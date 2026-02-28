@@ -1,0 +1,153 @@
+name: rig-gate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  rig-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install project
+        run: python -m pip install -e .
+
+      - name: Build RIG
+        run: rig-build build --repo . --out .dist/rig.json
+
+      - name: Query impact summary
+        run: rig-build query --rig .dist/rig.json --mode impact --name src.rig_mvp.cli --explain --out .dist/impact-cli.json
+
+      - name: Run policy checks
+        run: rig-build policy --rig .dist/rig.json --forbid-file config/policy-rules.txt --out .dist/policy-report.json --fail-on-violation
+
+      - name: Optional baseline diff
+        shell: bash
+        run: |
+          if [ -f .rig/baseline-rig.json ]; then
+            rig-build diff --old .rig/baseline-rig.json --new .dist/rig.json --out .dist/rig-diff.json
+          elif [ -f .dist/baseline-rig.json ]; then
+            rig-build diff --old .dist/baseline-rig.json --new .dist/rig.json --out .dist/rig-diff.json
+          else
+            echo "No baseline snapshot found; skipping diff."
+          fi
+
+      - name: Verify rules
+        run: rig-build verify --repo . --python python --max-rounds 2 --auto-repair --out .dist/verification-report.json
+
+      - name: Generate viewer and Neo4j artifacts
+        run: |
+          rig-build view --rig .dist/rig.json --out .dist/rig-view.html
+          rig-build neo4j-export --rig .dist/rig.json --out-dir .dist/neo4j
+
+      - name: Publish run summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+            from collections import Counter
+          from pathlib import Path
+
+          rig = json.loads(Path('.dist/rig.json').read_text(encoding='utf-8'))
+          verify = json.loads(Path('.dist/verification-report.json').read_text(encoding='utf-8'))
+          impact = json.loads(Path('.dist/impact-cli.json').read_text(encoding='utf-8'))
+
+            nodes = rig.get('nodes', []) if isinstance(rig.get('nodes', []), list) else []
+            edges = rig.get('edges', []) if isinstance(rig.get('edges', []), list) else []
+
+            node_kinds = Counter(
+              str(node.get('kind', 'unknown'))
+              for node in nodes
+              if isinstance(node, dict)
+            )
+            relation_kinds = Counter(
+              str(edge.get('relation', 'unknown'))
+              for edge in edges
+              if isinstance(edge, dict)
+            )
+
+            low_confidence_sources = Counter()
+            for edge in edges:
+              if not isinstance(edge, dict):
+                continue
+              props = edge.get('properties', {})
+              confidence = str(props.get('confidence', 'unknown')).lower() if isinstance(props, dict) else 'unknown'
+              if confidence != 'low':
+                continue
+              source_id = str(edge.get('source', ''))
+              source_name = source_id
+              for node in nodes:
+                if isinstance(node, dict) and str(node.get('id', '')) == source_id:
+                  source_name = str(node.get('name', source_id))
+                  break
+              low_confidence_sources[source_name] += 1
+
+              stack_signals = {
+                'python_modules': sum(
+                  1
+                  for node in nodes
+                  if isinstance(node, dict)
+                  and (
+                    str(node.get('name', '')).startswith('src.')
+                    or str(node.get('name', '')).startswith('backend.')
+                    or str(node.get('name', '')).startswith('app.')
+                  )
+                ),
+                'npm_packages': sum(1 for node in nodes if isinstance(node, dict) and str(node.get('name', '')).startswith('npm-pkg::')),
+                'maven_packages': sum(1 for node in nodes if isinstance(node, dict) and str(node.get('name', '')).startswith('maven-pkg::')),
+                'dotnet_packages': sum(1 for node in nodes if isinstance(node, dict) and str(node.get('name', '')).startswith('nuget::')),
+              }
+
+            top_node_kinds = ', '.join(f'{k}:{v}' for k, v in node_kinds.most_common(5)) or 'n/a'
+            top_relations = ', '.join(f'{k}:{v}' for k, v in relation_kinds.most_common(5)) or 'n/a'
+            top_low_sources = ', '.join(f'{k}:{v}' for k, v in low_confidence_sources.most_common(5)) or 'n/a'
+
+          summary = Path('.dist/ci-summary.md')
+          summary.write_text(
+              "\n".join([
+                  "## RIG Gate Summary",
+                  f"- Nodes: {rig.get('metadata', {}).get('node_count', 0)}",
+                  f"- Edges: {rig.get('metadata', {}).get('edge_count', 0)}",
+                f"- Confidence counts: {rig.get('metadata', {}).get('confidence_counts', {})}",
+                f"- Top node kinds: {top_node_kinds}",
+                f"- Top relations: {top_relations}",
+                f"- Top low-confidence sources: {top_low_sources}",
+                f"- Stack signals: {stack_signals}",
+                  f"- Verification passed: {verify.get('passed')}",
+                  f"- Verification rounds: {verify.get('rounds')}",
+                  f"- Impact query target: {impact.get('name')}",
+                  f"- Impact dependencies: {len(impact.get('impact', {}).get('dependencies', []))}",
+                  f"- Impact dependents: {len(impact.get('impact', {}).get('dependents', []))}",
+                  f"- Impact tests: {len(impact.get('impact', {}).get('tests', []))}",
+                f"- Policy report: .dist/policy-report.json",
+                  "",
+                  "Artifacts are attached in this workflow run.",
+              ]),
+              encoding='utf-8',
+          )
+          PY
+          cat .dist/ci-summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: rig-artifacts
+          path: |
+            .dist/rig.json
+            .dist/verification-report.json
+            .dist/impact-cli.json
+            .dist/policy-report.json
+            .dist/rig-diff.json
+            .dist/rig-view.html
+            .dist/neo4j/**
+            .dist/ci-summary.md

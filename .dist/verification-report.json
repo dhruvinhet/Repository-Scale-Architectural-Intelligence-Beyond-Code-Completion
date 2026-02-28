@@ -1,0 +1,28 @@
+{
+  "repo": "F:\\Seminar",
+  "rounds": 1,
+  "passed": true,
+  "static_passed": true,
+  "tests_passed": true,
+  "auto_repairs_attempted": 0,
+  "steps": [
+    {
+      "name": "syntax",
+      "command": "internal:ast-parse",
+      "exit_code": 0,
+      "status": "ok",
+      "duration_ms": 36,
+      "stdout": "Parsed 23 Python file(s).",
+      "stderr": ""
+    },
+    {
+      "name": "tests",
+      "command": "<none>",
+      "exit_code": 0,
+      "status": "skipped",
+      "duration_ms": 0,
+      "stdout": "No test roots detected for python/js/java/dotnet.",
+      "stderr": ""
+    }
+  ]
+}

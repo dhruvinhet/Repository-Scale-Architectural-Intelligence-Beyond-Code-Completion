@@ -1,0 +1,11 @@
+# One rule per line in form: <source-prefix>-><target-prefix>
+# Examples:
+# src.ui.->src.data.
+# src.api.->src.persistence.
+# Optional stack packs:
+# - config/policy-rules-python.txt
+# - config/policy-rules-backend.txt
+# - config/policy-rules-frontend.txt
+
+# Default safe placeholder rule (usually no-op for this repo)
+src.ui.->src.data.

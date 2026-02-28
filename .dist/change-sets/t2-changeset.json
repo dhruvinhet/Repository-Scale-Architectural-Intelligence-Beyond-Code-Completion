@@ -1,0 +1,34 @@
+{
+  "task_id": "T2",
+  "title": "Define interface and contracts",
+  "description": "Define interface and contracts for intent: Migrate auth to OAuth2",
+  "intent": "Migrate auth to OAuth2",
+  "impacted_nodes": [
+    "_candidate_files_for_nodes",
+    "src.rig_mvp.agents.workflow._candidate_files_for_nodes",
+    "IntentPlan",
+    "_apply_intent_refactor",
+    "_apply_task_to_candidates",
+    "_criteria_for_title",
+    "_find_forbidden_edges",
+    "_name_for_id",
+    "_parse_forbid_rules",
+    "_role_for_title"
+  ],
+  "candidate_files": [
+    "src/rig_mvp/agents/workflow.py"
+  ],
+  "actions": [
+    "Review 1 candidate file(s) for T2.",
+    "Agent role: generator.",
+    "Prepare multi-file patch aligned with AGENTS.md constraints.",
+    "Run verification loop after patch generation."
+  ],
+  "apply_mode": "deterministic-dry-run",
+  "applied_files": [
+    "src/rig_mvp/agents/workflow.py:dry-run"
+  ],
+  "skipped_files": [],
+  "critic_issues": [],
+  "repair_actions": []
+}

@@ -1,0 +1,240 @@
+{
+  "intent": "Migrate auth to OAuth2",
+  "constraints_count": 7,
+  "rig": {
+    "nodes": 379,
+    "edges": 639
+  },
+  "executions": [
+    {
+      "task_id": "T1",
+      "title": "Analyze impact scope",
+      "status": "completed",
+      "impacted_nodes": [
+        "IntentPlan",
+        "_apply_intent_refactor",
+        "_candidate_files_for_nodes",
+        "_criteria_for_title",
+        "_find_forbidden_edges",
+        "_infer_impacted_hints",
+        "_name_for_id",
+        "_parse_forbid_rules",
+        "_resolve_impacted_nodes",
+        "_role_for_title"
+      ],
+      "candidate_files": [],
+      "actions": [
+        "Inspect RIG neighborhood for T1.",
+        "No candidate files auto-detected; requires targeted repository query.",
+        "Repair: broaden RIG neighborhood search for T1."
+      ],
+      "artifact_path": "F:\\Seminar\\.dist\\change-sets\\t1-changeset.json",
+      "applied_files": [],
+      "skipped_files": [],
+      "critic_issues": [
+        "No candidate files were found; impact scope may be incomplete."
+      ],
+      "repair_actions": [
+        "Repair: broaden RIG neighborhood search for T1."
+      ]
+    },
+    {
+      "task_id": "T2",
+      "title": "Define interface and contracts",
+      "status": "completed",
+      "impacted_nodes": [
+        "_candidate_files_for_nodes",
+        "src.rig_mvp.agents.workflow._candidate_files_for_nodes",
+        "IntentPlan",
+        "_apply_intent_refactor",
+        "_apply_task_to_candidates",
+        "_criteria_for_title",
+        "_find_forbidden_edges",
+        "_name_for_id",
+        "_parse_forbid_rules",
+        "_role_for_title"
+      ],
+      "candidate_files": [
+        "src/rig_mvp/agents/workflow.py"
+      ],
+      "actions": [
+        "Review 1 candidate file(s) for T2.",
+        "Agent role: generator.",
+        "Prepare multi-file patch aligned with AGENTS.md constraints.",
+        "Run verification loop after patch generation."
+      ],
+      "artifact_path": "F:\\Seminar\\.dist\\change-sets\\t2-changeset.json",
+      "applied_files": [
+        "src/rig_mvp/agents/workflow.py:dry-run"
+      ],
+      "skipped_files": [],
+      "critic_issues": [],
+      "repair_actions": []
+    },
+    {
+      "task_id": "T3",
+      "title": "Update Python dependencies and packaging metadata",
+      "status": "completed",
+      "impacted_nodes": [
+        "_candidate_files_for_nodes",
+        "extract_python_build_metadata",
+        "src.rig_mvp.agents.workflow._candidate_files_for_nodes",
+        "src.rig_mvp.extractors.python_build_extractor.extract_python_build_metadata",
+        "IntentPlan",
+        "PythonSymbolVisitor",
+        "_apply_intent_refactor",
+        "_apply_task_to_candidates",
+        "_criteria_for_title",
+        "_extract_python_file"
+      ],
+      "candidate_files": [
+        "src/rig_mvp/agents/workflow.py",
+        "src/rig_mvp/extractors/python_build_extractor.py"
+      ],
+      "actions": [
+        "Review 2 candidate file(s) for T3.",
+        "Agent role: generator.",
+        "Prepare multi-file patch aligned with AGENTS.md constraints.",
+        "Run verification loop after patch generation."
+      ],
+      "artifact_path": "F:\\Seminar\\.dist\\change-sets\\t3-changeset.json",
+      "applied_files": [
+        "src/rig_mvp/agents/workflow.py:dry-run",
+        "src/rig_mvp/extractors/python_build_extractor.py:dry-run"
+      ],
+      "skipped_files": [],
+      "critic_issues": [],
+      "repair_actions": []
+    },
+    {
+      "task_id": "T4",
+      "title": "Implement code changes",
+      "status": "completed",
+      "impacted_nodes": [
+        "IntentPlan",
+        "_apply_intent_refactor",
+        "_candidate_files_for_nodes",
+        "_criteria_for_title",
+        "_find_forbidden_edges",
+        "_name_for_id",
+        "_parse_forbid_rules",
+        "_role_for_title",
+        "create_intent_plan",
+        "encode"
+      ],
+      "candidate_files": [],
+      "actions": [
+        "Inspect RIG neighborhood for T4.",
+        "No candidate files auto-detected; requires targeted repository query.",
+        "Repair: broaden RIG neighborhood search for T4."
+      ],
+      "artifact_path": "F:\\Seminar\\.dist\\change-sets\\t4-changeset.json",
+      "applied_files": [],
+      "skipped_files": [],
+      "critic_issues": [
+        "No candidate files were found; impact scope may be incomplete."
+      ],
+      "repair_actions": [
+        "Repair: broaden RIG neighborhood search for T4."
+      ]
+    },
+    {
+      "task_id": "T5",
+      "title": "Update tests and fixtures",
+      "status": "completed",
+      "impacted_nodes": [
+        "_candidate_files_for_nodes",
+        "src.rig_mvp.agents.workflow._candidate_files_for_nodes",
+        "src.rig_mvp.query.tests_for",
+        "src.rig_mvp.query.tests_for_explain",
+        "tests_for",
+        "tests_for_explain",
+        "IntentPlan",
+        "_apply_intent_refactor",
+        "_apply_task_to_candidates",
+        "_criteria_for_title"
+      ],
+      "candidate_files": [
+        "src/rig_mvp/agents/workflow.py",
+        "src/rig_mvp/query.py"
+      ],
+      "actions": [
+        "Review 2 candidate file(s) for T5.",
+        "Agent role: critic.",
+        "Prepare multi-file patch aligned with AGENTS.md constraints.",
+        "Run verification loop after patch generation."
+      ],
+      "artifact_path": "F:\\Seminar\\.dist\\change-sets\\t5-changeset.json",
+      "applied_files": [
+        "src/rig_mvp/agents/workflow.py:dry-run",
+        "src/rig_mvp/query.py:dry-run"
+      ],
+      "skipped_files": [],
+      "critic_issues": [],
+      "repair_actions": []
+    },
+    {
+      "task_id": "T6",
+      "title": "Run verification and repair",
+      "status": "completed",
+      "impacted_nodes": [
+        "src.rig_mvp.agents.verification._run_command",
+        "_candidate_files_for_nodes",
+        "_run_command",
+        "src.rig_mvp.agents.verification._attempt_safe_repairs",
+        "src.rig_mvp.agents.verification._run_build_system_checks",
+        "src.rig_mvp.agents.verification._run_static_checks",
+        "src.rig_mvp.agents.verification._run_syntax_check",
+        "src.rig_mvp.agents.verification._run_tests",
+        "src.rig_mvp.agents.verification.run",
+        "src.rig_mvp.agents.workflow._candidate_files_for_nodes"
+      ],
+      "candidate_files": [
+        "src/rig_mvp/agents/verification.py",
+        "src/rig_mvp/agents/workflow.py"
+      ],
+      "actions": [
+        "Review 2 candidate file(s) for T6.",
+        "Agent role: repair.",
+        "Prepare multi-file patch aligned with AGENTS.md constraints.",
+        "Run verification loop after patch generation."
+      ],
+      "artifact_path": "F:\\Seminar\\.dist\\change-sets\\t6-changeset.json",
+      "applied_files": [
+        "src/rig_mvp/agents/verification.py:dry-run",
+        "src/rig_mvp/agents/workflow.py:dry-run"
+      ],
+      "skipped_files": [],
+      "critic_issues": [],
+      "repair_actions": []
+    }
+  ],
+  "verification": {
+    "repo": "F:\\Seminar",
+    "rounds": 1,
+    "passed": true,
+    "static_passed": true,
+    "tests_passed": true,
+    "auto_repairs_attempted": 0,
+    "steps": [
+      {
+        "name": "syntax",
+        "command": "internal:ast-parse",
+        "exit_code": 0,
+        "status": "ok",
+        "duration_ms": 32,
+        "stdout": "Parsed 23 Python file(s).",
+        "stderr": ""
+      },
+      {
+        "name": "tests",
+        "command": "<none>",
+        "exit_code": 0,
+        "status": "skipped",
+        "duration_ms": 0,
+        "stdout": "No test roots detected for python/js/java/dotnet.",
+        "stderr": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+# Backend architecture policy pack (one rule per line: <source-prefix>-><target-prefix>)
+# Use prefixes based on your backend package naming.
+
+# Example: route handlers should not import persistence internals directly
+# backend.routes.->backend.persistence.
+
+# Example: domain should not depend on API layer
+# backend.domain.->backend.routes.

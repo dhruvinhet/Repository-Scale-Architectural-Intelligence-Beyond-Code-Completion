@@ -1,0 +1,36 @@
+{
+  "task_id": "T5",
+  "title": "Update tests and fixtures",
+  "description": "Update tests and fixtures for intent: Migrate auth to OAuth2",
+  "intent": "Migrate auth to OAuth2",
+  "impacted_nodes": [
+    "_candidate_files_for_nodes",
+    "src.rig_mvp.agents.workflow._candidate_files_for_nodes",
+    "src.rig_mvp.query.tests_for",
+    "src.rig_mvp.query.tests_for_explain",
+    "tests_for",
+    "tests_for_explain",
+    "IntentPlan",
+    "_apply_intent_refactor",
+    "_apply_task_to_candidates",
+    "_criteria_for_title"
+  ],
+  "candidate_files": [
+    "src/rig_mvp/agents/workflow.py",
+    "src/rig_mvp/query.py"
+  ],
+  "actions": [
+    "Review 2 candidate file(s) for T5.",
+    "Agent role: critic.",
+    "Prepare multi-file patch aligned with AGENTS.md constraints.",
+    "Run verification loop after patch generation."
+  ],
+  "apply_mode": "deterministic-dry-run",
+  "applied_files": [
+    "src/rig_mvp/agents/workflow.py:dry-run",
+    "src/rig_mvp/query.py:dry-run"
+  ],
+  "skipped_files": [],
+  "critic_issues": [],
+  "repair_actions": []
+}

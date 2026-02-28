@@ -1,0 +1,472 @@
+{
+  "mode": "impact",
+  "name": "cli",
+  "impact": {
+    "dependencies": [
+      "ArgumentParser",
+      "GenerateWorkflowReport",
+      "Path",
+      "SystemExit",
+      "VerificationAgent",
+      "__future__",
+      "add_argument",
+      "add_parser",
+      "add_subparsers",
+      "agents.orchestrator",
+      "agents.rules",
+      "agents.verification",
+      "agents.workflow",
+      "append",
+      "argparse",
+      "build_html_view",
+      "build_rig",
+      "create_intent_plan",
+      "cwd",
+      "dependencies_of",
+      "dependencies_of_explain",
+      "dependents_of",
+      "dependents_of_explain",
+      "diff_rig_snapshots",
+      "dumps",
+      "evaluate_policies",
+      "execute_task_agents",
+      "exists",
+      "export_neo4j_artifacts",
+      "extend",
+      "extract_critical_region_patterns",
+      "find_nodes",
+      "flatten_rules",
+      "from_path",
+      "impact_of",
+      "impact_of_explain",
+      "is_absolute",
+      "items",
+      "json",
+      "load_agent_rules",
+      "main",
+      "mkdir",
+      "neo4j_export",
+      "parse_args",
+      "pathlib",
+      "pipeline",
+      "policy",
+      "query",
+      "read_text",
+      "resolve",
+      "resolve_name",
+      "rig_diff",
+      "rollback_from_backups",
+      "run",
+      "serve_html",
+      "split",
+      "splitlines",
+      "startswith",
+      "strip",
+      "tests_for",
+      "tests_for_explain",
+      "to_dict",
+      "viewer",
+      "write_json",
+      "write_text"
+    ],
+    "dependents": [],
+    "tests": []
+  },
+  "explain": {
+    "dependencies": [
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "ArgumentParser",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "GenerateWorkflowReport",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "Path",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "SystemExit",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "VerificationAgent",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "add_argument",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "add_parser",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "add_subparsers",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "append",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "build_html_view",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "build_rig",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "create_intent_plan",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "cwd",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "dependencies_of",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "dependencies_of_explain",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "dependents_of",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "dependents_of_explain",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "diff_rig_snapshots",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "dumps",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "evaluate_policies",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "execute_task_agents",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "exists",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "export_neo4j_artifacts",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "extend",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "extract_critical_region_patterns",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "find_nodes",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "flatten_rules",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "from_path",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "impact_of",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "impact_of_explain",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "is_absolute",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "items",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "load_agent_rules",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "main",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "mkdir",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "parse_args",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "read_text",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "resolve",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "resolve_name",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "rollback_from_backups",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "run",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "serve_html",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "split",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "splitlines",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "startswith",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "strip",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "tests_for",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "tests_for_explain",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "to_dict",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "write_json",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "calls",
+        "to": "write_text",
+        "confidence": "low"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "__future__",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "agents.orchestrator",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "agents.rules",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "agents.verification",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "agents.workflow",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "argparse",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "json",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "neo4j_export",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "pathlib",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "pipeline",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "policy",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "query",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "rig_diff",
+        "confidence": "high"
+      },
+      {
+        "from": "src.rig_mvp.cli",
+        "relation": "imports",
+        "to": "viewer",
+        "confidence": "high"
+      }
+    ],
+    "dependents": [],
+    "tests": []
+  },
+  "resolved_name": "src.rig_mvp.cli"
+}

@@ -1,0 +1,8 @@
+# Python architecture policy pack (one rule per line: <source-prefix>-><target-prefix>)
+# Keep active rules conservative to avoid false positives; tune to your repo naming.
+
+# Example: presentation layer should not call persistence directly
+# src.api.->src.persistence.
+
+# Example: tests should not depend on deployment scripts
+# tests.->scripts.

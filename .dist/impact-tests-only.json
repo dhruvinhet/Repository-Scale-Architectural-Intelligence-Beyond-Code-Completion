@@ -1,0 +1,14 @@
+{
+  "mode": "impact",
+  "name": "src.rig_mvp.cli",
+  "impact": {
+    "dependencies": [],
+    "dependents": [],
+    "tests": []
+  },
+  "explain": {
+    "dependencies": [],
+    "dependents": [],
+    "tests": []
+  }
+}

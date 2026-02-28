@@ -1,0 +1,80 @@
+{
+  "intent": "Migrate auth to OAuth2",
+  "constraints": [
+    "[Style & Formatting] Keep changes minimal and focused on the requested intent.",
+    "[Style & Formatting] Preserve existing naming conventions and public APIs unless explicitly requested.",
+    "[Architecture Rules] Business logic modules must not directly read environment variables outside configuration boundaries.",
+    "[Architecture Rules] Shared interfaces should be introduced before adapter-specific implementations.",
+    "[Architecture Rules] Prefer dependency injection patterns over hard-coded singleton access.",
+    "[Critical Regions] Do not modify deployment manifests under `.azure/` without explicit intent.",
+    "[Critical Regions] Do not alter CI workflow files unless the request explicitly references CI/CD behavior."
+  ],
+  "subtasks": [
+    {
+      "id": "T1",
+      "title": "Analyze impact scope",
+      "description": "Analyze impact scope for intent: Migrate auth to OAuth2",
+      "impacted_hints": [],
+      "agent_role": "decomposer",
+      "acceptance_criteria": [
+        "Impacted modules are identified",
+        "Dependencies and dependents are listed"
+      ]
+    },
+    {
+      "id": "T2",
+      "title": "Define interface and contracts",
+      "description": "Define interface and contracts for intent: Migrate auth to OAuth2",
+      "impacted_hints": [],
+      "agent_role": "generator",
+      "acceptance_criteria": [
+        "Public contracts are stable",
+        "Backward compatibility risk is documented"
+      ]
+    },
+    {
+      "id": "T3",
+      "title": "Update Python dependencies and packaging metadata",
+      "description": "Update Python dependencies and packaging metadata for intent: Migrate auth to OAuth2",
+      "impacted_hints": [],
+      "agent_role": "generator",
+      "acceptance_criteria": [
+        "Python dependency metadata is updated",
+        "Import/module compatibility preserved"
+      ]
+    },
+    {
+      "id": "T4",
+      "title": "Implement code changes",
+      "description": "Implement code changes for intent: Migrate auth to OAuth2",
+      "impacted_hints": [],
+      "agent_role": "generator",
+      "acceptance_criteria": [
+        "Change compiles/interprets",
+        "Change respects repository constraints"
+      ]
+    },
+    {
+      "id": "T5",
+      "title": "Update tests and fixtures",
+      "description": "Update tests and fixtures for intent: Migrate auth to OAuth2",
+      "impacted_hints": [],
+      "agent_role": "critic",
+      "acceptance_criteria": [
+        "Relevant tests are updated",
+        "No coverage regressions in touched scope"
+      ]
+    },
+    {
+      "id": "T6",
+      "title": "Run verification and repair",
+      "description": "Run verification and repair for intent: Migrate auth to OAuth2",
+      "impacted_hints": [],
+      "agent_role": "repair",
+      "acceptance_criteria": [
+        "Verification passes",
+        "Repair loop converges without violating constraints"
+      ]
+    }
+  ]
+}

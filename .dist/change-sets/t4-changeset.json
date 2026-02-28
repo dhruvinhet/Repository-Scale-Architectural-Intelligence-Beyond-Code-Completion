@@ -1,0 +1,33 @@
+{
+  "task_id": "T4",
+  "title": "Implement code changes",
+  "description": "Implement code changes for intent: Migrate auth to OAuth2",
+  "intent": "Migrate auth to OAuth2",
+  "impacted_nodes": [
+    "IntentPlan",
+    "_apply_intent_refactor",
+    "_candidate_files_for_nodes",
+    "_criteria_for_title",
+    "_find_forbidden_edges",
+    "_name_for_id",
+    "_parse_forbid_rules",
+    "_role_for_title",
+    "create_intent_plan",
+    "encode"
+  ],
+  "candidate_files": [],
+  "actions": [
+    "Inspect RIG neighborhood for T4.",
+    "No candidate files auto-detected; requires targeted repository query.",
+    "Repair: broaden RIG neighborhood search for T4."
+  ],
+  "apply_mode": "deterministic-dry-run",
+  "applied_files": [],
+  "skipped_files": [],
+  "critic_issues": [
+    "No candidate files were found; impact scope may be incomplete."
+  ],
+  "repair_actions": [
+    "Repair: broaden RIG neighborhood search for T4."
+  ]
+}
